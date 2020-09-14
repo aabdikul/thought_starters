@@ -1,15 +1,35 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { fetchDishes } from '../actions/blogActions'
+import Dishes from '../components/dishes/Dishes'
 
 class DishesContainer extends Component {
+
+	componentDidMount() {
+		this.props.fetchDishes()
+	}
 
 	render() {
 		return (
 			<div>
-			
+			<h2>Dish Component</h2>
+			<Dishes dishes={this.props.dishes}/>
 			</div>
 		)
 	}
 
 }
 
-export default DishesContainer
+const mapStateToProps = state => {
+	return {
+		dishes: state.dishes
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		fetchDishes: () => dispatch(fetchDishes())
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DishesContainer)

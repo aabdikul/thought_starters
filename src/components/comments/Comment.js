@@ -9,6 +9,7 @@ class Comment extends Component {
 		return (
 			<div>
 			{comment.text}
+			<button>X</button>
 			</div>
 		)
 	}
