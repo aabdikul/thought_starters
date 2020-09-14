@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 
 class Comment extends Component {
 
+	componentDidMount() {
+		this.props.postComment(this.props.comment)
+	}
+
 	render() {
 
 		const {comment} = this.props
@@ -9,7 +13,6 @@ class Comment extends Component {
 		return (
 			<div>
 			{comment.text}
-			<button>X</button>
 			</div>
 		)
 	}
