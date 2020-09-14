@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchDishes } from '../actions/blogActions'
 import Dishes from '../components/dishes/Dishes'
 
+
 class DishesContainer extends Component {
 
 	componentDidMount() {
@@ -11,8 +12,8 @@ class DishesContainer extends Component {
 
 	render() {
 		return (
-			<div>
-			<h2>Dish Component</h2>
+			<div className="dish-container">
+			<h2>Dish Container</h2>
 			<Dishes dishes={this.props.dishes}/>
 			</div>
 		)

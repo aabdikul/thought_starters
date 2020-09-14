@@ -11,7 +11,7 @@ export const fetchDishes = () => {
 }
 
 export const postComment = (commentValue) => {
-
+	console.log(commentValue)
 	let inputObject = {
       method: "POST",
       headers: {
@@ -28,7 +28,6 @@ export const postComment = (commentValue) => {
     }
 
 	return (dispatch) => {
-		console.log(inputObject)
 		dispatch({type: 'POSTING_COMMENT'})
 		fetch('http://localhost:3000/comments', inputObject)
 		.then(response => {
@@ -37,6 +36,18 @@ export const postComment = (commentValue) => {
 			dispatch({type: 'POSTED_COMMENT', responseJSON})
 		})
 	}
+}
+
+export const fetchComments = () => {
+	return (dispatch) => {
+    dispatch({ type: 'LOADING_COMMENTS'})
+    fetch('http://localhost:3000/comments')
+    	.then(response => {
+    		return response.json()
+    	}).then(responseJSON => {
+    		dispatch({type: 'LOAD_COMMENT', comments: responseJSON})
+    	})
+    }
 }
 
 

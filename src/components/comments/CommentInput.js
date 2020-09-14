@@ -21,6 +21,7 @@ class CommentInput extends Component {
 	}
 
 	render() {
+
 		return (
 			<div>
 				<h3>Add Comment</h3>

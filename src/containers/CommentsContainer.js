@@ -11,6 +11,7 @@ class CommentsContainer extends Component {
 	}
 
 	render() {
+		console.log(this.props.comments)
 		return (
 			<div>
 			<CommentInput addComment={this.props.addComment} dishId={this.props.dishId}/>
@@ -29,7 +30,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
 	addComment: (comment, dishId) => dispatch({type: 'ADD_COMMENT', comment, dishId}),
-	postComment: (comment) => dispatch(postComment(comment))
+	postComment: (comment) => dispatch(postComment(comment)),
+	fetchComments: () => dispatch(fetchComments())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommentsContainer)

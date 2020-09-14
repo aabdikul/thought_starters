@@ -10,6 +10,7 @@ const blogReducer = (state = {dishes:[], outfits:[], comments:[]}, action) => {
       text: action.comment,
       post_id: action.dishId
     }
+    
 
     return {
       ...state, comments: [...state.comments, comment]
@@ -27,6 +28,20 @@ const blogReducer = (state = {dishes:[], outfits:[], comments:[]}, action) => {
     return {
       ...state, 
       dishes: [...state.dishes, ...dishes]
+    }
+
+    case 'LOADING_COMMENTS':
+    return {
+      ...state, 
+      comments: [...state.comments],
+      loading: true
+    }
+
+    case 'LOAD_COMMENT':
+    const comments = action.comments
+    return {
+        ...state, 
+        comments: [...state.comments, ...comments]
     }
 
 
