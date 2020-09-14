@@ -8,7 +8,7 @@ const blogReducer = (state = {dishes:[], outfits:[], comments:[]}, action) => {
     const comment = {
       uuid: uuid(),
       text: action.comment,
-      post_id: 1
+      post_id: action.dishId
     }
 
     return {

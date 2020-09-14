@@ -6,7 +6,7 @@ class Dish extends Component {
 	render() {
 
 		const {dish} = this.props
-
+	
 		return (
 			<div>
 			Name: {dish.name}
@@ -15,7 +15,7 @@ class Dish extends Component {
 			<br/>
 			Instructions: {dish.instructions}
 			<br/>
-			<CommentsContainer />
+			<CommentsContainer dishId={dish.unique_id}/>
 			</div>
 		)
 	}

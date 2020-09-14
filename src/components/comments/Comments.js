@@ -6,7 +6,9 @@ class Comments extends Component {
 	render() {
 		
 		const comment = this.props.comments.map((comment) => {
-			return <Comment key={comment.uuid} comment={comment}/>
+			if (comment.post_id === this.props.dishId) {
+				return <Comment key={comment.uuid} comment={comment}/>
+			}
 		})
 
 		return (

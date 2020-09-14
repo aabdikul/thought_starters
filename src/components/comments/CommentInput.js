@@ -17,7 +17,7 @@ class CommentInput extends Component {
 
 	handleSubmit = event => {
 		event.preventDefault()
-		this.props.addComment(this.state.comment)
+		this.props.addComment(this.state.comment, this.props.dishId)
 	}
 
 	render() {
