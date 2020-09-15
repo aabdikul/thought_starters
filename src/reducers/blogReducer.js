@@ -44,6 +44,18 @@ const blogReducer = (state = {dishes:[], outfits:[], comments:[]}, action) => {
         comments: [...state.comments, ...comments]
     }
 
+    case 'ADD_POST':
+    const newPost = {
+      unique_id: action.unique_id,
+      name: action.name,
+      image: action.image,
+      ingredients: action.ingredients,
+      instructions: action.instructions
+    }
+    return {
+      ...state, dishes: [...state.dishes, newPost]
+    }
+
 
     default:
       return state;

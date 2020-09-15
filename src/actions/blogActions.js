@@ -49,4 +49,34 @@ export const fetchComments = () => {
     }
 }
 
+export const postNewPost = (unique_id, name, image, ingredients, instructions) => {
+    
+    let inputObject = {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+       body: JSON.stringify({
+        unique_id: unique_id,
+        name: name, 
+        image: image, 
+        ingredients: ingredients,
+        instructions: instructions
+      })
+    }
+
+    return (dispatch) => {
+        dispatch({type: 'POSTING_NEW'})
+        fetch('http://localhost:3000/dishes', inputObject)
+        .then(response => {
+            return response.json()
+        }).then(responseJSON => {
+            dispatch({type: 'POSTED_COMMENT', responseJSON})
+        })
+    }
+
+}
+
+
 
