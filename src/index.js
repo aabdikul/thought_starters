@@ -11,6 +11,7 @@ import blogReducer from './reducers/blogReducer.js';
 import DishesContainer from './containers/DishesContainer';
 import Navbar from './Navbar';
 import DishInput from './components/dishes/DishInput';
+import LikedDishes from './components/dishes/LikedDishes';
 
 const store = createStore(blogReducer, applyMiddleware(thunk))
 
@@ -20,6 +21,7 @@ ReactDOM.render(
   <Navbar />
     <Route path='/home' component={DishesContainer}/>
     <Route path='/create' component={DishInput}/>
+    <Route path='/liked' component={LikedDishes}/>
   </Router>
   </Provider>,
   document.getElementById('root')

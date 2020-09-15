@@ -16,7 +16,7 @@ class DishesContainer extends Component {
 
 		return (
 			<div className="dish-container">
-			<h2>Dish Container</h2>
+			<h1>Thoughts and Recipes</h1>
 			<DishInput addPost={this.props.addPost} postNewPost={this.props.postNewPost}/>
 			<Dishes dishes={this.props.dishes} comments={this.props.comments}/>
 			</div>

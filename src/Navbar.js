@@ -33,6 +33,14 @@ class Navbar extends React.Component {
             background: 'darkblue'
           }}
           >Create Post</NavLink>
+          <NavLink
+          to="liked"
+          exact
+          style={link}
+          activeStyle={{
+            background: 'darkblue'
+          }}
+          >Liked Posts</NavLink>
       </div>
     )
   }

@@ -4,15 +4,28 @@ import CommentsContainer from '../../containers/CommentsContainer'
 
 class Dish extends Component {
 
+
 	render() {
 
 		const {dish} = this.props
-	
+		const whiteHeart = '\u2661';
+		const blackHeart = '\u2665';
+
+		const favorite = () => {
+			if (this.props.dish.favorite === true) {
+				return blackHeart
+			}
+			else {
+				return whiteHeart
+			}
+		}
+
+		
 		return (
 			<div className="dish-post">
 				
-				<div className="name" onClick={() => console.log("hi")}>
-					Name: {dish.name}
+				<div className="name">
+				Name: {dish.name}
 				</div>
 
 				<br/>
@@ -30,8 +43,11 @@ class Dish extends Component {
 				Instructions: {dish.instructions}
 				
 				<br/>
+
+				<button>{favorite()}</button>
+
+				<CommentsContainer dishId={dish.unique_id} comments={this.props.comments}/>
 			
-			<CommentsContainer dishId={dish.unique_id} comments={this.props.comments}/>
 			</div>
 		)
 	}

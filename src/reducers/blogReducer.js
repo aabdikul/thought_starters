@@ -50,7 +50,8 @@ const blogReducer = (state = {dishes:[], outfits:[], comments:[]}, action) => {
       name: action.name,
       image: action.image,
       ingredients: action.ingredients,
-      instructions: action.instructions
+      instructions: action.instructions,
+      favorite: false
     }
     return {
       ...state, dishes: [...state.dishes, newPost]
