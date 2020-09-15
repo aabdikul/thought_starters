@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import CommentsContainer from '../../containers/CommentsContainer'
+import DishStyle from './Dish.css'
 
 
 class Dish extends Component {
+
+	handleClick = () => {
+		console.log("clicked the heart button, need to update status in backend")	
+	}
 
 
 	render() {
@@ -19,20 +24,18 @@ class Dish extends Component {
 				return whiteHeart
 			}
 		}
-
 		
 		return (
 			<div className="dish-post">
 				
-				<div className="name">
-				Name: {dish.name}
-				</div>
+			
+				<h1>{dish.name}</h1>
+			
 
 				<br/>
 
-				<div className = "image">
+				
 					<img src={dish.image}/>
-				</div>
 
 				<br/>
 

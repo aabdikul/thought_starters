@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './App.scss';
+import './App.css';
 import { connect } from 'react-redux';
 import { fetchDishes } from './actions/blogActions';
 import DishesContainer from './containers/DishesContainer';

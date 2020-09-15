@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
+import CommentInputStyling from './CommentInput.css'
 
 class CommentInput extends Component {
 
@@ -26,12 +27,12 @@ class CommentInput extends Component {
 	render() {
 
 		return (
-			<div>
+			<div className="box">
 				<h3>Add Comment</h3>
-			<br/>
 				<form className="create-comment" onSubmit={this.handleSubmit}>
-					<input type="text" name="comment" onChange={this.handleChange} value={this.state.comment}/>
-					<input type="submit"/>
+					<input type="text" className="input-field" name="comment" onChange={this.handleChange} value={this.state.comment}/>
+					<br/>
+					<input type="submit" value="Submit" className="submit-button"/>
 				</form>
 			</div>
 		)

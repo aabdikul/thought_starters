@@ -1,0 +1,28 @@
+
+.box {
+	text-align: center;
+	font-family: Didot;
+	font-size: 20px;
+	width: 300px;
+  	border: 1px solid black;
+  	padding: 50px;
+  	margin: auto;
+}
+
+.create-comment {
+	text-align: center;
+}
+
+.submit-button {
+  background:  #B2D1C3 ;
+  border-radius: 5px;
+  border: 2px solid black;
+  color: black;
+  font-family: Helvetica;
+}
+
+.input-field {
+	border: 2px solid black;
+    border-radius: 4px;
+    width: 75%;
+}
