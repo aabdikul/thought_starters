@@ -4,7 +4,9 @@ import Comment from './Comment'
 class Comments extends Component {
 
 	render() {
-		
+
+		console.log(this.props.comments)
+
 		const comment = this.props.comments.map((comment) => {
 			if (comment.post_id === this.props.dishId) {
 				return <Comment key={comment.uuid} comment={comment} postComment={this.props.postComment}/>

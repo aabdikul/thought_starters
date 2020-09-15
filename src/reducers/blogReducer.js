@@ -6,7 +6,7 @@ const blogReducer = (state = {dishes:[], outfits:[], comments:[]}, action) => {
     case 'ADD_COMMENT':
 
     const comment = {
-      uuid: uuid(),
+      uuid: action.identifier,
       text: action.comment,
       post_id: action.dishId
     }

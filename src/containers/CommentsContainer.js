@@ -6,15 +6,11 @@ import { postComment, fetchComments } from '../actions/blogActions'
 
 class CommentsContainer extends Component {
 
-	componentDidMount() {
-		this.props.fetchComments()
-	}
-
 	render() {
-		console.log(this.props.comments)
+		
 		return (
 			<div>
-			<CommentInput addComment={this.props.addComment} dishId={this.props.dishId}/>
+			<CommentInput addComment={this.props.addComment} dishId={this.props.dishId} postComment={this.props.postComment}/>
 			<Comments comments={this.props.comments} dishId={this.props.dishId} postComment={this.props.postComment}/>
 			</div>
 		)
@@ -22,16 +18,10 @@ class CommentsContainer extends Component {
 
 }
 
-const mapStateToProps = state => {
-	return {
-		comments: state.comments
-	}
-}
 
 const mapDispatchToProps = dispatch => ({
-	addComment: (comment, dishId) => dispatch({type: 'ADD_COMMENT', comment, dishId}),
-	postComment: (comment) => dispatch(postComment(comment)),
-	fetchComments: () => dispatch(fetchComments())
+	addComment: (comment, dishId, identifier) => dispatch({type: 'ADD_COMMENT', comment, dishId, identifier}),
+	postComment: (comment, dishId, identifier) => dispatch(postComment(comment, dishId, identifier))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(CommentsContainer)
+export default connect(null, mapDispatchToProps)(CommentsContainer)

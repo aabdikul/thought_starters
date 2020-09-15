@@ -10,8 +10,7 @@ export const fetchDishes = () => {
     }
 }
 
-export const postComment = (commentValue) => {
-	console.log(commentValue)
+export const postComment = (commentValue, dishIdValue, identifierValue) => {
 	let inputObject = {
       method: "POST",
       headers: {
@@ -19,9 +18,9 @@ export const postComment = (commentValue) => {
         "Accept": "application/json"
       },
        body: JSON.stringify({
-        uuid: commentValue.uuid,
-        text: commentValue.text,
-        post_id: commentValue.post_id,
+        uuid: identifierValue,
+        text: commentValue,
+        post_id: dishIdValue,
         upvotes: 0,
         downvotes: 0
       })

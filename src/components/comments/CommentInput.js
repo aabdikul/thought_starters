@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uuid from 'uuid';
 
 class CommentInput extends Component {
 
@@ -16,8 +17,10 @@ class CommentInput extends Component {
 	}
 
 	handleSubmit = event => {
-		event.preventDefault()
-		this.props.addComment(this.state.comment, this.props.dishId)
+		event.preventDefault();
+		let identifier = uuid();
+		this.props.addComment(this.state.comment, this.props.dishId, identifier);
+		this.props.postComment(this.state.comment, this.props.dishId, identifier);
 	}
 
 	render() {

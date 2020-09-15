@@ -15,7 +15,7 @@ class Dish extends Component {
 			<br/>
 			Instructions: {dish.instructions}
 			<br/>
-			<CommentsContainer dishId={dish.unique_id}/>
+			<CommentsContainer dishId={dish.unique_id} comments={this.props.comments}/>
 			</div>
 		)
 	}

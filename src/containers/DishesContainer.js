@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchDishes } from '../actions/blogActions'
+import { fetchDishes, fetchComments } from '../actions/blogActions'
 import Dishes from '../components/dishes/Dishes'
 
 
@@ -8,13 +8,14 @@ class DishesContainer extends Component {
 
 	componentDidMount() {
 		this.props.fetchDishes()
+		this.props.fetchComments()
 	}
 
 	render() {
 		return (
 			<div className="dish-container">
 			<h2>Dish Container</h2>
-			<Dishes dishes={this.props.dishes}/>
+			<Dishes dishes={this.props.dishes} comments={this.props.comments}/>
 			</div>
 		)
 	}
@@ -23,13 +24,15 @@ class DishesContainer extends Component {
 
 const mapStateToProps = state => {
 	return {
-		dishes: state.dishes
+		dishes: state.dishes,
+		comments: state.comments
 	}
 }
 
 const mapDispatchToProps = dispatch => {
 	return {
-		fetchDishes: () => dispatch(fetchDishes())
+		fetchDishes: () => dispatch(fetchDishes()),
+		fetchComments: () => dispatch(fetchComments())
 	}
 }
 
