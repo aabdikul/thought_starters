@@ -26,7 +26,7 @@ class Dish extends Component {
 		
 		return (
 			<div className="dish-post">
-				<button className="heart">{favorite()}</button>
+				<button className="heart" onClick={() => this.props.favorite(this.props.dish.unique_id)}>{favorite()}</button>
 			
 				<h2>{dish.name}</h2>
 			

@@ -12,7 +12,8 @@ class DishInput extends Component {
 			name: '',
 			image: '',
 			ingredients: '',
-			instructions: ''
+			instructions: '',
+			favorite: false
 		}
 	}
 
@@ -26,7 +27,7 @@ class DishInput extends Component {
 		event.preventDefault();
 		let unique_id = uuid();
 		this.props.addPost(unique_id, this.state.name, this.state.image, this.state.ingredients, this.state.instructions);
-		this.props.postNewPost(unique_id, this.state.name, this.state.image, this.state.ingredients, this.state.instructions);
+		this.props.postNewPost(unique_id, this.state.name, this.state.image, this.state.ingredients, this.state.instructions, this.state.favorite);
 		this.setState({
 			name: '',
 			image: '',
@@ -55,7 +56,7 @@ class DishInput extends Component {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		postNewPost: (unique_id, name, image, ingredients, instructions) => dispatch(postNewPost(unique_id, name, image, ingredients, instructions)),
+		postNewPost: (unique_id, name, image, ingredients, instructions, favorite) => dispatch(postNewPost(unique_id, name, image, ingredients, instructions, favorite)),
 		addPost: (unique_id, name, image, ingredients, instructions) => dispatch({type: 'ADD_POST', unique_id, name, image, ingredients, instructions})
 	}
 }
