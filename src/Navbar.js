@@ -3,11 +3,12 @@ import { NavLink } from 'react-router-dom';
  
 const link = {
   width: '100px',
-  padding: '12px',
-  margin: '0 6px 6px',
+  padding: '8px',
+  margin: '6px 6px 6px',
   background: 'white',
   textDecoration: 'none',
-  color: 'black', 
+  color: 'black',
+  fontFamily: 'Didot'
 }
  
 class Navbar extends React.Component {
