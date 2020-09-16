@@ -9,7 +9,6 @@ class Dish extends Component {
 		console.log("clicked the heart button, need to update status in backend")	
 	}
 
-
 	render() {
 
 		const {dish} = this.props
@@ -49,7 +48,7 @@ class Dish extends Component {
 				<div className="comment-container">
 				<CommentsContainer dishId={dish.unique_id} comments={this.props.comments}/>
 				<br/>
-				<button className="delete">Delete Post</button>
+				<button className="delete" onClick={() => this.props.delete(this.props.dish.unique_id)}>Delete Post</button>
 				</div>
 			</div>
 		)

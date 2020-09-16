@@ -56,6 +56,11 @@ const blogReducer = (state = {dishes:[], outfits:[], comments:[]}, action) => {
       ...state, dishes: [...state.dishes, newPost]
     }
 
+    case 'DELETE_POST':
+    const deleted = state.dishes.filter(dish => dish.unique_id !== action.post_id)
+    console.log(deleted)
+    
+
 
     default:
       return state;

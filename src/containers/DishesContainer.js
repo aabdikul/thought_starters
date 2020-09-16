@@ -17,7 +17,7 @@ class DishesContainer extends Component {
 		return (
 			<div className="dish-container">
 			<h1>Thoughts and Recipes</h1>
-			<Dishes dishes={this.props.dishes} comments={this.props.comments}/>
+			<Dishes dishes={this.props.dishes} comments={this.props.comments} delete={this.props.delete}/>
 			</div>
 		)
 	}
@@ -34,7 +34,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		fetchDishes: () => dispatch(fetchDishes()),
-		fetchComments: () => dispatch(fetchComments())
+		fetchComments: () => dispatch(fetchComments()),
+		delete: (post_id) => dispatch({type: "DELETE_POST", post_id})
 	}
 }
 
