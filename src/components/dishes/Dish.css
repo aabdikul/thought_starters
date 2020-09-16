@@ -1,13 +1,20 @@
 .dish-post {
-	width: 90%;
+  justify-content: center;
+	width: 40%;
   	border: 1px solid black;
-  	padding: 50px;
+  	padding: 40px;
   	margin: 20px;
+    margin-left: 26%;
+    margin-right: 26%;
+    background-color: #DEEAE8  ;
+    text-align: center;
 }
 
-h1 {
+h2 {
+  font-family: Didot;
 	color: black;
 	text-align: center;
+  font-size: 30px;
 }
 
 img {
@@ -16,4 +23,31 @@ img {
   margin-right: auto;
   width: 40%;
   height: 40%;
+  box-shadow: 2px 2px grey;
+    border: 1px solid black;
+    padding: px;
+    margin: auto;
+}
+
+.ingredients {
+  font-family: Didot;
+}
+
+.instructions {
+  font-family: Didot;
+}
+
+.heart {
+  float: right;
+  background: transparent;
+  border: none;
+}
+
+.delete {
+  float: right;
+  background: #E3CBCB ; 
+  border: 2px solid black;
+  border-radius: 6px; 
+  color: black;
+  font-family: Didot;
 }

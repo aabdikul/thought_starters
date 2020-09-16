@@ -1,4 +1,3 @@
-import uuid from 'uuid';
 
 const blogReducer = (state = {dishes:[], outfits:[], comments:[]}, action) => {
   

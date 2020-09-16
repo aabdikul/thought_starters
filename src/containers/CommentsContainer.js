@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CommentInput from '../components/comments/CommentInput';
 import { connect } from 'react-redux';
 import Comments from '../components/comments/Comments'
-import { postComment, fetchComments } from '../actions/blogActions'
+import { postComment } from '../actions/blogActions'
 
 class CommentsContainer extends Component {
 
@@ -10,8 +10,11 @@ class CommentsContainer extends Component {
 		
 		return (
 			<div>
-			<CommentInput addComment={this.props.addComment} dishId={this.props.dishId} postComment={this.props.postComment}/>
 			<Comments comments={this.props.comments} dishId={this.props.dishId} postComment={this.props.postComment}/>
+			<br/>
+			<br/>
+			<br/>
+			<CommentInput addComment={this.props.addComment} dishId={this.props.dishId} postComment={this.props.postComment}/>
 			</div>
 		)
 	}

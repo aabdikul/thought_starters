@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Comment from './Comment'
 
+
 class Comments extends Component {
 
 	render() {
@@ -12,8 +13,8 @@ class Comments extends Component {
 		})
 
 		return (
-			<div>
-			Comments Component
+			<div className="comments">
+			<h4><strong>Comments</strong></h4>
 			{comment}
 			</div>
 		)

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
+import { connect } from 'react-redux';
+import { postNewPost } from '../../actions/blogActions';
+import './DishInput.css'
 
 class DishInput extends Component {
 
@@ -33,7 +36,6 @@ class DishInput extends Component {
 	}
 
 	render() {
-
 		return (
 			<div>
 				<h3>New Dish</h3>
@@ -51,4 +53,11 @@ class DishInput extends Component {
 
 }
 
-export default DishInput
+const mapDispatchToProps = dispatch => {
+	return {
+		postNewPost: (unique_id, name, image, ingredients, instructions) => dispatch(postNewPost(unique_id, name, image, ingredients, instructions)),
+		addPost: (unique_id, name, image, ingredients, instructions) => dispatch({type: 'ADD_POST', unique_id, name, image, ingredients, instructions})
+	}
+}
+
+export default connect(null, mapDispatchToProps)(DishInput)

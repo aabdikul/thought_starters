@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CommentsContainer from '../../containers/CommentsContainer'
-import DishStyle from './Dish.css'
+import './Dish.css'
 
 
 class Dish extends Component {
@@ -27,30 +27,30 @@ class Dish extends Component {
 		
 		return (
 			<div className="dish-post">
-				
+				<button className="heart">{favorite()}</button>
 			
-				<h1>{dish.name}</h1>
+				<h2>{dish.name}</h2>
 			
 
 				<br/>
 
 				
-					<img src={dish.image}/>
+					<img src={dish.image} alt={dish.id}/>
 
 				<br/>
 
-				Ingredients: {dish.ingredients}
+				<div className="ingredients"><strong>Ingredients: </strong>{dish.ingredients}</div>
 				
 				<br/>
 				
-				Instructions: {dish.instructions}
+				<div className="instructions"><strong>Instructions:</strong> {dish.instructions}</div>
 				
 				<br/>
-
-				<button>{favorite()}</button>
-
+				<div className="comment-container">
 				<CommentsContainer dishId={dish.unique_id} comments={this.props.comments}/>
-			
+				<br/>
+				<button className="delete">Delete Post</button>
+				</div>
 			</div>
 		)
 	}

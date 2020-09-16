@@ -5,9 +5,9 @@ const link = {
   width: '100px',
   padding: '12px',
   margin: '0 6px 6px',
-  background: 'blue',
+  background: 'white',
   textDecoration: 'none',
-  color: 'white',
+  color: 'black', 
 }
  
 class Navbar extends React.Component {
@@ -22,7 +22,8 @@ class Navbar extends React.Component {
           style={link}
           /* add prop for activeStyle */
           activeStyle={{
-            background: 'darkblue'
+            background: 'black',
+            color: 'white'
           }}
         >Home</NavLink>
         <NavLink
@@ -30,7 +31,8 @@ class Navbar extends React.Component {
           exact
           style={link}
           activeStyle={{
-            background: 'darkblue'
+            background: 'black',
+            color: 'white'
           }}
           >Create Post</NavLink>
           <NavLink
@@ -38,7 +40,8 @@ class Navbar extends React.Component {
           exact
           style={link}
           activeStyle={{
-            background: 'darkblue'
+            background: 'black',
+            color: 'white'
           }}
           >Liked Posts</NavLink>
       </div>
