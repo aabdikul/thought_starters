@@ -67,15 +67,37 @@ export const postNewPost = (unique_id, name, image, ingredients, instructions) =
     }
 
     return (dispatch) => {
-        dispatch({type: 'POSTING_NEW'})
+        dispatch({type: 'POSTING_NEW_DISH'})
         fetch('http://localhost:3000/dishes', inputObject)
         .then(response => {
             return response.json()
         }).then(responseJSON => {
-            dispatch({type: 'POSTED_COMMENT', responseJSON})
+            dispatch({type: 'POSTED_DISH', responseJSON})
         })
     }
 
+}
+
+export const postDelete = (ruby_id, unique_id) => {
+    let inputObject = {
+        method: "DELETE",
+        headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+       body: JSON.stringify({
+        unique_id: unique_id
+      })
+    }
+    return (dispatch) => {
+        dispatch({type: 'DELETING_POST'})
+        fetch(`http://localhost:3000/dishes/${ruby_id}`, inputObject)
+        .then(response => {
+            return response.json()
+        }).then(responseJSON => {
+            dispatch({type: 'DELETED_POST', responseJSON})
+        })
+    }
 }
 
 

@@ -1,5 +1,5 @@
 
-const blogReducer = (state = {dishes:[], outfits:[], comments:[]}, action) => {
+const blogReducer = (state = {dishes:{}, outfits:[], comments:[]}, action) => {
   
   switch(action.type) {
     case 'ADD_COMMENT':
@@ -18,15 +18,22 @@ const blogReducer = (state = {dishes:[], outfits:[], comments:[]}, action) => {
     case 'LOADING_DISH':
     return {
       ...state,
-      dishes: [...state.dishes],
+      dishes: {...state.dishes},
       loading: true
     }
 
     case 'ADD_DISH':
     const dishes = action.dishes
+
+    const placeholder = {}
+
+    for (const element of dishes) {
+        placeholder[element.unique_id]=element
+    }
+
     return {
       ...state, 
-      dishes: [...state.dishes, ...dishes]
+      dishes: {...state.dishes, ...placeholder}
     }
 
     case 'LOADING_COMMENTS':
@@ -40,10 +47,11 @@ const blogReducer = (state = {dishes:[], outfits:[], comments:[]}, action) => {
     const comments = action.comments
     return {
         ...state, 
-        comments: [...state.comments, ...comments]
+        comments: [...comments]
     }
 
     case 'ADD_POST':
+    
     const newPost = {
       unique_id: action.unique_id,
       name: action.name,
@@ -52,17 +60,31 @@ const blogReducer = (state = {dishes:[], outfits:[], comments:[]}, action) => {
       instructions: action.instructions,
       favorite: false
     }
+    const newNewPost = {}
+    newNewPost[action.unique_id] = newPost
+    const inputPost = Object.assign(state.dishes,newNewPost)
+
     return {
-      ...state, dishes: [...state.dishes, newPost]
+      ...state, dishes: {...inputPost}
     }
 
+
     case 'DELETE_POST':
-    const deleted = state.dishes.filter(dish => dish.unique_id !== action.post_id)
-    console.log(deleted)
+    
+    const placeh = Object.assign({}, state.dishes)
+    delete placeh[action.post_id]
+
+    return {...state, dishes: {...placeh}}
 
     case 'FAVORITE_POST':
-    console.log(state)
-    console.log(action)
+    const favoriteDish = Object.assign({}, state.dishes[action.unique_id])
+    favoriteDish.favorite = !action.favorite_status
+    const favoriteDishInput = {} 
+    favoriteDishInput[action.unique_id] = favoriteDish
+    return {
+      ...state, 
+      dishes: {...state.dishes, ...favoriteDishInput}
+    }
     
 
 

@@ -5,8 +5,14 @@ import './Dish.css'
 
 class Dish extends Component {
 
-	handleClick = () => {
-		console.log("clicked the heart button, need to update status in backend")	
+
+	handleFavorite = (unique_id, favorite_status) => {
+		this.props.favorite(unique_id, favorite_status)
+	}
+
+	handleDelete = (ruby_id, unique_id) => {
+		this.props.delete(unique_id);
+		this.props.postDelete(ruby_id, unique_id)
 	}
 
 	render() {
@@ -26,7 +32,7 @@ class Dish extends Component {
 		
 		return (
 			<div className="dish-post">
-				<button className="heart" onClick={() => this.props.favorite(this.props.dish.unique_id)}>{favorite()}</button>
+				<button className="heart" onClick={() => this.handleFavorite(this.props.dish.unique_id, this.props.dish.favorite)}>{favorite()}</button>
 			
 				<h2>{dish.name}</h2>
 			
@@ -48,7 +54,7 @@ class Dish extends Component {
 				<div className="comment-container">
 				<CommentsContainer dishId={dish.unique_id} comments={this.props.comments}/>
 				<br/>
-				<button className="delete" onClick={() => this.props.delete(this.props.dish.unique_id)}>Delete Post</button>
+				<button className="delete" onClick={() => this.handleDelete(this.props.dish.id, this.props.dish.unique_id)}>Delete Post</button>
 				</div>
 			</div>
 		)
