@@ -27,6 +27,7 @@ class Navbar extends React.Component {
             color: 'white'
           }}
         >Home</NavLink>
+        
         <NavLink
           to="/create"
           exact
@@ -36,6 +37,7 @@ class Navbar extends React.Component {
             color: 'white'
           }}
           >Create Post</NavLink>
+          
           <NavLink
           to="liked"
           exact
