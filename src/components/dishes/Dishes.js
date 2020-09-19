@@ -8,7 +8,7 @@ class Dishes extends Component {
 		if (Object.keys(this.props.dishes).length !== 0) {
 			const dish = Object.keys(this.props.dishes).map((key) => {
 				const disher = this.props.dishes[key]
-				return <Dish key={disher.unique_id} dish={disher} comments={this.props.comments} delete={this.props.delete} favorite={this.props.favorite} postDelete={this.props.postDelete}/>	
+				return <Dish key={disher.unique_id} updateFavorite={this.props.updateFavorite} dish={disher} comments={this.props.comments} delete={this.props.delete} favorite={this.props.favorite} postDelete={this.props.postDelete}/>	
 			})
 
 		return (

@@ -100,5 +100,30 @@ export const postDelete = (ruby_id, unique_id) => {
     }
 }
 
+export const updateFavorite = (ruby_id, favorite_status) => {
+     let inputObject = {
+        method: "PATCH",
+        headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+       body: JSON.stringify({
+        id: ruby_id,
+        favorite: favorite_status
+      })
+    }
+
+    return (dispatch) => {
+        dispatch({type: 'UPDATING_FAVORITE'})
+        fetch(`http://localhost:3000/dishes/${ruby_id}`, inputObject)
+        .then(response => {
+            return response.json()
+        }).then(responseJSON => {
+            dispatch({type: 'UPDATED_FAVORITE', responseJSON})
+        })
+    }
+
+}
+
 
 

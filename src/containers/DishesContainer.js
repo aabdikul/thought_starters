@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchDishes, fetchComments, postDelete } from '../actions/blogActions'
+import { fetchDishes, fetchComments, postDelete, updateFavorite } from '../actions/blogActions'
 import Dishes from '../components/dishes/Dishes'
 import './DishesContainer.css'
 
@@ -18,7 +18,7 @@ class DishesContainer extends Component {
 		return (
 			<div className="dish-container">
 			<h1>Thoughts and Recipes</h1>
-			<Dishes dishes={this.props.dishes} comments={this.props.comments} delete={this.props.delete} favorite={this.props.favorite} postDelete={this.props.postDelete}/>
+			<Dishes dishes={this.props.dishes} updateFavorite={this.props.updateFavorite} comments={this.props.comments} delete={this.props.delete} favorite={this.props.favorite} postDelete={this.props.postDelete}/>
 			</div>
 		)
 	}
@@ -38,7 +38,8 @@ const mapDispatchToProps = dispatch => {
 		fetchComments: () => dispatch(fetchComments()),
 		delete: (post_id) => dispatch({type: "DELETE_POST", post_id}),
 		favorite: (unique_id, favorite_status) => dispatch({type: "FAVORITE_POST", unique_id, favorite_status}),
-		postDelete: (ruby_id, post_id) => dispatch(postDelete(ruby_id, post_id))
+		postDelete: (ruby_id, post_id) => dispatch(postDelete(ruby_id, post_id)),
+		updateFavorite: (ruby_id, favorite_status) => dispatch(updateFavorite(ruby_id, favorite_status))
 	}
 }
 

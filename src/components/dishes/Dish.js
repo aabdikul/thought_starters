@@ -6,8 +6,9 @@ import './Dish.css'
 class Dish extends Component {
 
 
-	handleFavorite = (unique_id, favorite_status) => {
-		this.props.favorite(unique_id, favorite_status)
+	handleFavorite = (unique_id, favorite_status, ruby_id) => {
+		this.props.favorite(unique_id, favorite_status);
+		this.props.updateFavorite(ruby_id, favorite_status);
 	}
 
 	handleDelete = (ruby_id, unique_id) => {
@@ -32,7 +33,7 @@ class Dish extends Component {
 		
 		return (
 			<div className="dish-post">
-				<button className="heart" onClick={() => this.handleFavorite(this.props.dish.unique_id, this.props.dish.favorite)}>{favorite()}</button>
+				<button className="heart" onClick={() => this.handleFavorite(this.props.dish.unique_id, this.props.dish.favorite, this.props.dish.id)}>{favorite()}</button>
 			
 				<h2>{dish.name}</h2>
 			
